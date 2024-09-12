@@ -57,19 +57,27 @@ function read_lines(filepath)
     if s then  -- if not end of file (EOF)
 
       name = splitCSVLine(s)
-      if name ~= nil and name ~= 
-        "*~##~*" and not firstrow then
+      if name ~= nil and name ~= "*~##~*" and not firstrow then
         track = reaper.GetTrack(0, i)
       
         reaper.GetSetMediaTrackInfo_String(track, "P_NAME", name, true)
-          i = i + 1
-        end
+        i = i + 1
+      end
       firstrow = false
     end
 
   until not s  -- until end of file
 
   f:close()
+
+  count_lines = reaper.CountTracks(0)
+  for id = count_lines - 1, i, -1 do
+    track = reaper.GetTrack(0, id)
+    _, name = reaper.GetSetMediaTrackInfoString(track, "P_NAME", "", false)
+    if name == "" then
+      reaper.DeleteTrack(track)
+    end
+  end
 
   reaper.Undo_EndBlock("Display script infos in the console", -1) -- End undo group
 
@@ -84,6 +92,8 @@ if retval then
 
   reaper.PreventUIRefresh(1)
   read_lines(filetxt)
+
+
 
   -- Update TCP
   reaper.TrackList_AdjustWindows(false)
