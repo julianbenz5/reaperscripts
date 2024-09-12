@@ -37,7 +37,7 @@ string.gmatch(line, '([^,]*),?') do
   table.insert(columns,
 column)
   end
-  return columns[3]
+  return columns[5]
 -- Return the first two columns
 end
 
@@ -58,7 +58,7 @@ function read_lines(filepath)
 
       name = splitCSVLine(s)
       if name ~= nil and name ~= 
-        "*~##~*" then
+        "*~##~*" and not firstrow then
         track = reaper.GetTrack(0, i)
       
         reaper.GetSetMediaTrackInfo_String(track, "P_NAME", name, true)
