@@ -33,7 +33,7 @@ end
 function splitCSVLine(line)
   local columns = {}
   for column in
-string.gmatch(line, '([^,]+)') do
+string.gmatch(line, `([^,]*),?`) do
   table.insert(columns,
 column)
   end
@@ -57,9 +57,9 @@ function read_lines(filepath)
     if s then  -- if not end of file (EOF)
 
       name = splitCSVLine(s)
-      if name ~= nil and name ~= "" and not firstrow then
+      if name != nil and name != 
+        "*~##~*" then
         track = reaper.GetTrack(0, i)
-          print(i, track)
       
         reaper.GetSetMediaTrackInfo_String(track, "P_NAME", name, true)
           i = i + 1
