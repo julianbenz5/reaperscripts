@@ -73,7 +73,7 @@ function read_lines(filepath)
   count_lines = reaper.CountTracks(0)
   for id = count_lines - 1, i, -1 do
     track = reaper.GetTrack(0, id)
-    _, name = reaper.GetSetMediaTrackInfoString(track, "P_NAME", "", false)
+    _, name = reaper.GetSetMediaTrackInfo_String(track, "P_NAME", "", false)
     if name == "" then
       reaper.DeleteTrack(track)
     end
