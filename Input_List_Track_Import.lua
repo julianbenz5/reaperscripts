@@ -1,28 +1,12 @@
 --[[
- * ReaScript Name: Import tracks from file
- * About: Import tracks from a TXT or CSV file. One track name per line.
- * Instructions: Select an item. Use it.
- * Screenshot: http://i.giphy.com/3oEduTrQlzj80oPpWE.gif
- * Author: X-Raym
- * Author URI: https://www.extremraym.com
- * Repository: GitHub > X-Raym > REAPER-ReaScripts
- * Repository URI: https://github.com/X-Raym/REAPER-ReaScripts
- * Licence: GPL v3
- * Forum Thread: Import track titles from file (eg: CSV)
- * Forum Thread URI: http://forum.cockos.com/showthread.php?p=1564559
- * REAPER: 5.0 pre 36
- * Version: 1.1.1
+ * Author: Julian Benz
+ * Location: Phoenix SharePoint/#Production/2a_Audio/Reaper_Scripts or https://github.com/julianbenz5/reaperscripts
 ]]
 
 
 --[[
  * Changelog:
- * v1.1.1 (2015-08-27)
-  # .csv file extension for MacOS
- * v1.1 (2015-08-27)
-  # Track order
- * v1.0 (2015-08-27)
-  + Initial Release
+ * V1.0 17/09/2024 Reaper Version v7.16
 ]]
 
 
